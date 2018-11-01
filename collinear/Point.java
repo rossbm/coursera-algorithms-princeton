@@ -60,8 +60,24 @@ public class Point implements Comparable<Point> {
      */
     public double slopeTo(Point that) {
         /* rise over run */
-        return (this.y - that.y)/(this.x-that.x)
+        int rise = this.riseTo(that);
+        int run = this.runTo(that);
+        if (run == 0) {
+            if (rise == 0) return Double.NEGATIVE_INFINITY;
+            else return Double.POSITIVE_INFINITY;
+        } else if (rise ==0) return 0.0;
+        return (double) rise/run;
     }
+
+    // Calculating rise and run seprately, so can use in comprator as ints
+    private int riseTo(Point that) {
+        return this.y - that.y;
+    }
+
+    private int runTo(Point that) {
+        return this.x - that.x;
+    }
+
 
     /**
      * Compares two points by y-coordinate, breaking ties by x-coordinate.
@@ -80,6 +96,7 @@ public class Point implements Comparable<Point> {
         if (this.y < that.y) return -1;
         if (this.x > that.x) return 1;
         if (this.x < that.x) return -1;
+        // Should only return 0 if both equal;
         return 0;
     }
 
@@ -90,7 +107,22 @@ public class Point implements Comparable<Point> {
      * @return the Comparator that defines this ordering on points
      */
     public Comparator<Point> slopeOrder() {
-        /* YOUR CODE HERE */
+        class SlopeOrder implements Comparator<Point> {
+            private Point originPoint;
+            public SlopeOrder(Point originPoint) {
+                if (originPoint == null) { throw new java.lang.IllegalArgumentException();}
+                this.originPoint = originPoint;
+            }
+            public int compare(Point aPoint, Point bPoint) {
+                if (aPoint == null) { throw new java.lang.NullPointerException();}
+                if (bPoint == null) { throw new java.lang.NullPointerException();}
+                double aSlope = originPoint.slopeTo(aPoint);
+                double bSlope = originPoint.slopeTo(bPoint);
+                if (aSlope == bSlope) { return 0;}
+                else { return (aSlope >= bSlope) ? 1 : -1;}
+            }
+        }
+        return new SlopeOrder(this);
     }
 
 
@@ -110,6 +142,12 @@ public class Point implements Comparable<Point> {
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
-        /* YOUR CODE HERE */
+        Point a = new Point(0, 0);
+        Point b = new Point(1, 1);
+        Point c = new Point(1, -1);
+        Point d = new Point(2, 2);
+        System.out.println(a.compareTo(b));
+        System.out.println(a.slopeOrder().compare(b, c));
+        System.out.println(c.slopeOrder().compare(b, d));
     }
 }
