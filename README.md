@@ -6,7 +6,7 @@ This repository contains programming assignments for Coursera's "Algorithms", of
 | ------------- |:-------------:| -----:|  -----:|  -----:|
 | 1      | Percolation | 29/9/2018 | 94 | Would need to correct "backwash" to obtain 100 |
 | 2      | Deques and Randomized Queues | 14/10/2018 | 100 | Failed to pass 2 memory tests but still obtained 100 |
-| 3      | Collinear Points | In Progress | 01/11/2018 | 99 | Failed one test; duplicates for BruteCollinear. This would be an easy fix. Subjectively, code is not well written and could be much better written.
+| 3      | Collinear Points | 01/11/2018 | 99 | Failed one test; duplicates for BruteCollinear. This would be an easy fix. Subjectively, code is not well written and could be much better written.
 | 4      | 8 Puzzle | Upcoming |  |  |
 | 5      | Kd-Trees | Upcoming |  | |
 | 6      | NO ASSIGNMENT | NA |  | |
