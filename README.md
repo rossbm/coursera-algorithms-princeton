@@ -3,13 +3,13 @@ This repository contains programming assignments for Coursera's "Algorithms", of
 
 ## [Part I](https://www.coursera.org/learn/algorithms-part1)
 | Week        |   Name        | Date Completed   | Final Score | Notes |
-| ------------- |:-------------:| -----:|  -----:|  -----:|
+| ------------- |:-------------:| :-----:|  -----:|  -----:|
 | 1      | Percolation | 29/9/2018 | 94 | Would need to correct "backwash" to obtain 100 |
 | 2      | Deques and Randomized Queues | 14/10/2018 | 100 | Failed to pass 2 memory tests but still obtained 100 |
 | 3      | Collinear Points | 01/11/2018 | 99 | Failed one test; duplicates for BruteCollinear. This would be an easy fix. Subjectively, code is not well written and could be much better written.
-| 4      | 8 Puzzle | Upcoming |  |  |
-| 5      | Kd-Trees | Upcoming |  | |
-| 6      | NO ASSIGNMENT | NA |  | |
+| 4      | 8 Puzzle | IN PROGRESS |  |  |
+| 5      | Kd-Trees | UPCOMING |  | |
+| 6      | NO ASSIGNMENT | N/A |  | |
 
 
 ## [Part II](https://www.coursera.org/learn/algorithms-part2)
