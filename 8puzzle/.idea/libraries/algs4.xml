@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/.lift/algs4.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
     </SOURCES>
   </library>
 </component>
