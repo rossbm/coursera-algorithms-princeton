@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KdTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/KdTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KdTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/KdTreeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RangeSearchVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/RangeSearchVisualizer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/lift/" />
@@ -65,13 +62,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="java" value="8469" />
+          <entry key="java" value="8470" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8469" />
+          <entry key="JAVA" value="8470" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Scratch" value="2" />
         </counts>
@@ -89,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KdTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
+            <state relative-caret-position="257">
+              <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2415#2424#0" expanded="true" />
@@ -115,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KdTreeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+            <state relative-caret-position="414">
+              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,7 +128,7 @@
         <entry file="file://$PROJECT_DIR$/NearestNeighborVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="455">
-              <caret line="39" column="40" lean-forward="true" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -357,12 +354,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KdTreeTest_checkNullQuery - 2018.12.12 at 22h 31m 09s.xml">
-      <configuration name="KdTreeTest.checkNullQuery" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KdTreeTest_checkNullQuery - 2018.12.12 at 22h 32m 24s.xml">
-      <configuration name="KdTreeTest.checkNullQuery" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="KdTreeTest - 2018.12.12 at 22h 32m 31s.xml">
       <configuration name="KdTreeTest" configurationId="JUnit" />
     </history-entry>
@@ -387,6 +378,12 @@
     <history-entry file="KdTreeTest - 2018.12.12 at 22h 58m 38s.xml">
       <configuration name="KdTreeTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="KdTreeTest - 2018.12.12 at 23h 11m 31s.xml">
+      <configuration name="KdTreeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="KdTreeTest - 2018.12.12 at 23h 12m 49s.xml">
+      <configuration name="KdTreeTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -406,8 +403,8 @@
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" show_stripe_button="false" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32932693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28125" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32932693" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28125" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39903846" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -457,7 +454,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/KdTree.java</url>
-          <line>100</line>
+          <line>96</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
@@ -532,20 +529,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KdTreeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NearestNeighborVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
-          <caret line="39" column="40" lean-forward="true" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -561,8 +548,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KdTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
+        <state relative-caret-position="257">
+          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2415#2424#0" expanded="true" />
@@ -570,6 +557,16 @@
             <element signature="e#2609#2610#0" expanded="true" />
             <element signature="e#7342#7343#0" expanded="true" />
             <element signature="e#7374#7375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KdTreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -33,12 +33,11 @@ public class KdTree {
     // add the point to the set (if it is not already in the set)
     public void insert(Point2D p) {
         if (p == null) throw new java.lang.IllegalArgumentException();
-        root = insert(root, p, unitRect, HORIZONTAL);
+        root = insert(root, p, HORIZONTAL);
     }
 
     private Node insert(Node currentNode,
                         Point2D newPoint,
-                        RectHV parentRect,
                         boolean orientation) {
         boolean direction;
         if (currentNode == null) {
@@ -52,17 +51,14 @@ public class KdTree {
         direction = currentNode.compare(newPoint, orientation);
         // RT for when other node is bigger (horizontally or vertically)
         if (direction == RT) {
-            // TODO: more elegant
             currentNode.rt = insert(currentNode.rt,
                                     newPoint,
-                                    currentNode.rtRect(parentRect, orientation),
                                     !orientation);
         }
         // LEFT when current node is bigger
         else {
             currentNode.lb = insert(currentNode.lb,
                                     newPoint,
-                                    currentNode.lbRect(parentRect, orientation),
                                     !orientation);
         }
         return currentNode;
