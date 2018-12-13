@@ -4,6 +4,7 @@
  *  Description:
  **************************************************************************** */
 
+import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
 import edu.princeton.cs.algs4.StdDraw;
@@ -51,6 +52,7 @@ public class KdTree {
         direction = currentNode.compare(newPoint, orientation);
         // RT for when other node is bigger (horizontally or vertically)
         if (direction == RT) {
+            // TODO: more elegant
             currentNode.rt = insert(currentNode.rt,
                                     newPoint,
                                     currentNode.rtRect(parentRect, orientation),
@@ -66,8 +68,36 @@ public class KdTree {
         return currentNode;
     }
 
+    public Iterable<Point2D> range(RectHV rect) {
+        if (rect == null) throw new java.lang.IllegalArgumentException();
+        Ranger result = new Ranger(rect);
+        result.roam(root, unitRect, HORIZONTAL);
+        return result.bag;
+    }
+
+    private class Ranger {
+        private Bag<Point2D> bag = new Bag<Point2D>();
+        private RectHV qRect;
+
+        Ranger(RectHV rect) {
+            qRect = rect;
+        }
+
+        public void roam(Node currentNode, RectHV parentRect, boolean orientation) {
+            if (currentNode == null) return;
+            if (!parentRect.intersects(qRect)) return;
+            if (qRect.contains(currentNode.getP())) bag.add(currentNode.getP());
+            RectHV rightRect = currentNode.childRect(parentRect, RT, orientation);
+            RectHV leftRect = currentNode.childRect(parentRect, !RT, orientation);
+            roam(currentNode.rt, rightRect, !orientation);
+            roam(currentNode.lb, leftRect, !orientation);
+        }
+
+    }
+
 
     public Point2D nearest(Point2D queryPoint) {
+        if (queryPoint == null) throw new java.lang.IllegalArgumentException();
         Querier query = new Querier(queryPoint);
         return query.search();
     }
@@ -80,15 +110,18 @@ public class KdTree {
 
         public Querier(Point2D queryPoint) {
             this.queryPoint = queryPoint;
-            this.closestPoint = root.p;
+            if (root != null) this.closestPoint = root.p;
         }
 
         public Point2D search() {
-            return search(root, unitRect, HORIZONTAL);
+            search(root, unitRect, HORIZONTAL);
+            return closestPoint;
         }
 
-        private Point2D search(Node currentNode, RectHV parentRect, boolean orientation) {
-            if (currentNode == null) return closestPoint;
+        private void search(Node currentNode, RectHV parentRect, boolean orientation) {
+            if (currentNode == null) return;
+            double rectDist = parentRect.distanceSquaredTo(queryPoint);
+            if (closestDist < rectDist) return;
             double currentDist = currentNode.p.distanceSquaredTo(queryPoint);
             if (currentDist < closestDist) {
                 closestPoint = currentNode.p;
@@ -97,22 +130,17 @@ public class KdTree {
             RectHV lbRect = currentNode.lbRect(parentRect, orientation);
             RectHV rtRect = currentNode.rtRect(parentRect, orientation);
 
-            double lbDist = lbRect.distanceSquaredTo(queryPoint);
-            double rtDist = rtRect.distanceSquaredTo(queryPoint);
+            // TODO: Use bollean direction to control direction of search rat
+            boolean direction = currentNode.compare(queryPoint, orientation);
 
-            if (lbDist < rtDist) {
-                closestPoint = search(currentNode.lb, lbRect, !orientation);
-                if (rtDist < closestDist) {
-                    closestPoint = search(currentNode.rt, rtRect, !orientation);
-                }
+            if (direction) {
+                search(currentNode.rt, rtRect, !orientation);
+                search(currentNode.lb, lbRect, !orientation);
             }
             else {
-                closestPoint = search(currentNode.rt, rtRect, !orientation);
-                if (lbDist < closestDist) {
-                    closestPoint = search(currentNode.lb, lbRect, !orientation);
-                }
+                search(currentNode.lb, lbRect, !orientation);
+                search(currentNode.rt, rtRect, !orientation);
             }
-            return closestPoint;
         }
 
 
@@ -202,6 +230,10 @@ public class KdTree {
             return p.equals(op);
         }
 
+        public Point2D getP() {
+            return p;
+        }
+
         public double x() {
             return this.p.x();
         }
@@ -210,7 +242,7 @@ public class KdTree {
             return this.p.y();
         }
 
-        public boolean compare(Point2D  that, boolean orientation) {
+        public boolean compare(Point2D that, boolean orientation) {
             if (orientation == HORIZONTAL) {
                 return compareX(that);
             }
@@ -220,7 +252,6 @@ public class KdTree {
         private boolean compareX(Point2D that) {
             return this.x() <= that.x();
         }
-
         private boolean compareY(Point2D that) {
             return this.y() <= that.y();
         }
@@ -241,6 +272,13 @@ public class KdTree {
             else {
                  return new RectHV(parentRect.xmin(), parentRect.ymin(), parentRect.xmax(), y());
             }
+        }
+
+        public RectHV childRect(RectHV parentRect, boolean direction, boolean orientation) {
+            if (direction == RT) {
+                return rtRect(parentRect, orientation);
+            }
+            else return lbRect(parentRect, orientation);
         }
     }
 

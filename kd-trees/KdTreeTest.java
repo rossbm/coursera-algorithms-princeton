@@ -44,7 +44,7 @@ public class KdTreeTest {
     }
 
     @Test
-    public void checkNearest() {
+    public void checkNearest0() {
         KdTree tester = new KdTree();
         tester.insert(new Point2D(0.1, 0.2));
         tester.insert(new Point2D(0.2, 0.1));
@@ -56,4 +56,23 @@ public class KdTreeTest {
 
     }
 
+    @Test
+    public void checkNearest1() {
+        KdTree tester = new KdTree();
+        tester.insert(new Point2D(0.7, 0.2));
+        tester.insert(new Point2D(0.5, 0.4));
+        tester.insert(new Point2D(0.2, 0.3));
+        tester.insert(new Point2D(0.4, 0.7));
+        tester.insert(new Point2D(0.9, 0.6));
+        Point2D queryPoint = new Point2D(0.301, 0.034);
+        assertEquals(new Point2D(0.2, 0.3), tester.nearest(queryPoint));
+
+    }
+
+    @Test
+    public void checkNullQuery() {
+        KdTree tester = new KdTree();
+        assertEquals(null, tester.nearest(new Point2D(0.05, 0.05)));
+
+    }
 }
