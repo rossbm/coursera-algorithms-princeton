@@ -13,3 +13,6 @@ This repository contains programming assignments for Coursera's "Algorithms", of
 
 
 ## [Part II](https://www.coursera.org/learn/algorithms-part2)
+| Week | Name | Date Complete | Final Score | Notes|
+| ----| :------:| :--------------:| ----------:| ------:|
+| 1  | Wordnet | In Progress | TBD |
