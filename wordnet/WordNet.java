@@ -10,11 +10,11 @@ import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.Digraph;
 public class WordNet {
     // from noun to array of synset IDs
+    // instance variable since needed for the nouns and isNoun methods
     private ST<String, Bag<Integer>> nounST;
     // from synset ID to array of nouns
+    // instance variable since will be used to converty vertice IDs back to nouns
     private ST<Integer, String[]> synST;
-    // the hypernyms file will be used to create a digraph
-
     // constructor takes the name of the two input files
     public WordNet(String synsets, String hypernyms) {
         if (synsets == null) throw new java.lang.IllegalArgumentException();
@@ -41,10 +41,16 @@ public class WordNet {
             }
         }
         // Now read in hypernyms file
-        // The number of vertices should match the synyms file
-        // We will have to throw an exception if this is not the case (not true!!)
+        // The ids of the vertices should conform to the synyms file
+        // Digraph addEdge method will throw an IllegalArgumentException if not a valid vertice
+        // What I need to check is that we have constructed a ROOTED ACYLIC Digraph
+        // Since we are required to pass a Digraph to SAP
+        // Maybe a second constructor or something?
+        // How to check rooted?
+        // And Acylic?
         In inHyp = new In(hypernyms);
         int numSyn = synST.size();
+        // the hypernyms file will be used to create a digraph
         Digraph diHyp = new Digraph(numSyn);
         while (!inHyp.isEmpty()) {
             String[] hypernym = inHyp.readLine().split(",");
